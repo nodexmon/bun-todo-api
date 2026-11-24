@@ -1,9 +1,9 @@
 import { Database } from "bun:sqlite";
 
 export function createDb(path = process.env.DB_PATH ?? "todos.db") {
-    const db = new Database(path, { create: true });
+  const db = new Database(path, { create: true });
 
-    db.run(`
+  db.run(`
         CREATE TABLE IF NOT EXISTS todos (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             title TEXT NOT NULL,
@@ -12,5 +12,5 @@ export function createDb(path = process.env.DB_PATH ?? "todos.db") {
         )
     `);
 
-    return db;
+  return db;
 }
